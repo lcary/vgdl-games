@@ -16,7 +16,7 @@ var retry_game = function () {
 }
 
 var go_back = function () {
-	window.location.href = './games';
+	window.location.href = '../../games';
 }
 
 
@@ -27,11 +27,11 @@ var continue_game = function () {
 
 
 var next_level = function () {
-	window.location.href = `./games/${data.real}/${data.pair+1}`
+	window.location.href = `../../games/${data.real}/${data.pair+1}`
 }
 
 var prev_level = function () {
-	window.location.href = `./games/${data.real}/${data.pair-1}`
+	window.location.href = `../../games/${data.real}/${data.pair-1}`
 }
 
 $(document).on('click', '#return', go_back);
