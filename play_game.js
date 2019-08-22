@@ -16,7 +16,7 @@ var retry_game = function () {
 }
 
 var go_back = function () {
-	window.location.href = '../../games';
+	window.location.href = '../..';
 }
 
 
