@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="./games.js"></script>
+
+  <script src="./cookies.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Lato:regular,bold" rel="stylesheet">
+  <script>
+  var games_ordering = [
+  'gvgai_aliens',
+    'gvgai_variant_aliens_1',
+  'gvgai_variant_aliens_2',
+    'gvgai_variant_aliens_3',
+  'gvgai_variant_aliens_4',
+
+  'expt_antagonist',
+    'expt_variant_antagonist_1',
+    'expt_variant_antagonist_2',
+
+  'gvgai_avoidgeorge',
+  'gvgai_variant_avoidgeorge_1',
+  'gvgai_variant_avoidgeorge_2',
+  'gvgai_variant_avoidgeorge_3',
+  'gvgai_variant_avoidgeorge_4',
+
+    'gvgai_bait',
+  'gvgai_variant_bait_1',
+  'gvgai_variant_bait_2',
+
+  'gvgai_bees_and_birds',
+    'gvgai_variant_bees_and_birds_1',
+
+    'gvgai_boulderdash',
+    'gvgai_variant_boulderdash_1',
+    'gvgai_variant_boulderdash_2',
+
+    'gvgai_butterflies',
+    'gvgai_variant_butterflies_1',
+  'gvgai_variant_butterflies_2',
+
+  'gvgai_chase',
+  'gvgai_variant_chase_1',
+  'gvgai_variant_chase_2',
+    'gvgai_variant_chase_3',
+
+    'gvgai_closing_gates',
+  'gvgai_variant_closing_gates_1',
+
+  'gvgai_corridor',
+  'gvgai_variant_corridor_1',
+
+    'expt_ee',
+    'expt_variant_ee_1',
+    'expt_variant_ee_2',
+    'expt_variant_ee_3',
+
+  'gvgai_frogs',
+  'gvgai_variant_frogs_1',
+  'gvgai_variant_frogs_2',
+  'gvgai_variant_frogs_3',
+
+    'expt_helper',
+  'expt_variant_helper_1',
+    'expt_variant_helper_2',
+
+    'gvgai_jaws',
+    'gvgai_variant_jaws_1',
+    'gvgai_variant_jaws_2',
+
+  'gvgai_lemmings',
+    'gvgai_variant_lemmings_1',
+    'gvgai_variant_lemmings_2',
+    'gvgai_variant_lemmings_3',
+
+  'gvgai_missilecommand',
+  'gvgai_variant_missilecommand_1',
+  'gvgai_variant_missilecommand_2',
+  'gvgai_variant_missilecommand_3',
+  'gvgai_variant_missilecommand_4',
+
+    'gvgai_myAliens',
+  'gvgai_variant_myAliens_1',
+  'gvgai_variant_myAliens_2',
+
+    'gvgai_plaqueattack',
+  'gvgai_variant_plaqueattack_1',
+  'gvgai_variant_plaqueattack_2',
+  'gvgai_variant_plaqueattack_3',
+
+  'gvgai_portals',
+  'gvgai_variant_portals_1',
+  'gvgai_variant_portals_2',
+
+  'expt_preconditions',
+  'expt_variant_preconditions_1',
+    'expt_variant_preconditions_2',
+
+    'expt_push_boulders',
+  'expt_variant_push_boulders_1',
+  'expt_variant_push_boulders_2',
+
+  'expt_relational',
+    'expt_variant_relational_1',
+    'expt_variant_relational_2',
+
+  'gvgai_sokoban',
+    'gvgai_variant_sokoban_1',
+    'gvgai_variant_sokoban_2',
+
+    'gvgai_surprise',
+  'gvgai_variant_surprise_1',
+    'gvgai_variant_surprise_2',
+
+  'gvgai_survivezombies',
+  'gvgai_variant_survivezombies_1',
+    'gvgai_variant_survivezombies_2',
+
+  'gvgai_watergame',
+    'gvgai_variant_watergame_1',
+    'gvgai_variant_watergame_2',
+
+    'gvgai_zelda',
+  'gvgai_variant_zelda_1',
+  'gvgai_variant_zelda_2',
+  'gvgai_variant_zelda_3',
+]
+
+var games_ordered = [];
+
+for(var i=0; i < games_ordering.length; i++) {
+  for(var j=0; j < games.length; j++) {
+     if (1 == games[j][0].localeCompare(games_ordering[i])) {
+       games_ordered.push(games[j]);
+     }
+  }
+}
+
+games = games_ordered;
+
+</script>
+</head>
+<body>
+  <div class='topnav'>
+    <ul id='nav'>
+      <li id="games">
+        Games
+      </li>
+    </ul>
+  </div>
+  <div class='container'>
+    <div class='game-bar FlexItem'>
+      <ul id='game-bar'>
+        
+         <li class="game" id='gvgai_aliens'>Aliens</li>
+        
+         <li class="game" id='gvgai_variant_aliens_1'>Aliens 1</li>
+        
+         <li class="game" id='gvgai_variant_aliens_2'>Aliens 2</li>
+        
+         <li class="game" id='gvgai_variant_aliens_3'>Aliens 3</li>
+        
+         <li class="game" id='gvgai_variant_aliens_4'>Aliens 4</li>
+        
+         <li class="game" id='expt_antagonist'>Antagonist</li>
+        
+         <li class="game" id='expt_variant_antagonist_1'>Antagonist 1</li>
+        
+         <li class="game" id='expt_variant_antagonist_2'>Antagonist 2</li>
+        
+         <li class="game" id='gvgai_avoidgeorge'>Avoidgeorge</li>
+        
+         <li class="game" id='gvgai_variant_avoidgeorge_1'>Avoidgeorge 1</li>
+        
+         <li class="game" id='gvgai_variant_avoidgeorge_2'>Avoidgeorge 2</li>
+        
+         <li class="game" id='gvgai_variant_avoidgeorge_3'>Avoidgeorge 3</li>
+        
+         <li class="game" id='gvgai_variant_avoidgeorge_4'>Avoidgeorge 4</li>
+        
+         <li class="game" id='gvgai_bait'>Bait</li>
+        
+         <li class="game" id='gvgai_variant_bait_1'>Bait 1</li>
+        
+         <li class="game" id='gvgai_variant_bait_2'>Bait 2</li>
+        
+         <li class="game" id='gvgai_bees_and_birds'>Bees and birds</li>
+        
+         <li class="game" id='gvgai_variant_bees_and_birds_1'>Bees and birds 1</li>
+        
+         <li class="game" id='gvgai_boulderdash'>Boulderdash</li>
+        
+         <li class="game" id='gvgai_variant_boulderdash_1'>Boulderdash 1</li>
+        
+         <li class="game" id='gvgai_variant_boulderdash_2'>Boulderdash 2</li>
+        
+         <li class="game" id='gvgai_butterflies'>Butterflies</li>
+        
+         <li class="game" id='gvgai_variant_butterflies_1'>Butterflies 1</li>
+        
+         <li class="game" id='gvgai_variant_butterflies_2'>Butterflies 2</li>
+        
+         <li class="game" id='gvgai_chase'>Chase</li>
+        
+         <li class="game" id='gvgai_variant_chase_1'>Chase 1</li>
+        
+         <li class="game" id='gvgai_variant_chase_2'>Chase 2</li>
+        
+         <li class="game" id='gvgai_variant_chase_3'>Chase 3</li>
+        
+         <li class="game" id='gvgai_closing_gates'>Closing gates</li>
+        
+         <li class="game" id='gvgai_variant_closing_gates_1'>Closing gates 1</li>
+        
+         <li class="game" id='gvgai_corridor'>Corridor</li>
+        
+         <li class="game" id='gvgai_variant_corridor_1'>Corridor 1</li>
+        
+         <li class="game" id='expt_ee'>Explore/Exploit</li>
+        
+         <li class="game" id='expt_variant_ee_1'>Explore/Exploit 1</li>
+        
+         <li class="game" id='expt_variant_ee_2'>Explore/Exploit 2</li>
+        
+         <li class="game" id='expt_variant_ee_3'>Explore/Exploit 3</li>
+        
+         <li class="game" id='gvgai_frogs'>Frogs</li>
+        
+         <li class="game" id='gvgai_variant_frogs_1'>Frogs 1</li>
+        
+         <li class="game" id='gvgai_variant_frogs_2'>Frogs 2</li>
+        
+         <li class="game" id='gvgai_variant_frogs_3'>Frogs 3</li>
+        
+         <li class="game" id='expt_helper'>Helper</li>
+        
+         <li class="game" id='expt_variant_helper_1'>Helper 1</li>
+        
+         <li class="game" id='expt_variant_helper_2'>Helper 2</li>
+        
+         <li class="game" id='gvgai_jaws'>Jaws</li>
+        
+         <li class="game" id='gvgai_variant_jaws_1'>Jaws 1</li>
+        
+         <li class="game" id='gvgai_variant_jaws_2'>Jaws 2</li>
+        
+         <li class="game" id='gvgai_lemmings'>Lemmings</li>
+        
+         <li class="game" id='gvgai_variant_lemmings_1'>Lemmings 1</li>
+        
+         <li class="game" id='gvgai_variant_lemmings_2'>Lemmings 2</li>
+        
+         <li class="game" id='gvgai_variant_lemmings_3'>Lemmings 3</li>
+        
+         <li class="game" id='gvgai_missilecommand'>Missilecommand</li>
+        
+         <li class="game" id='gvgai_variant_missilecommand_1'>Missilecommand 1</li>
+        
+         <li class="game" id='gvgai_variant_missilecommand_2'>Missilecommand 2</li>
+        
+         <li class="game" id='gvgai_variant_missilecommand_3'>Missilecommand 3</li>
+        
+         <li class="game" id='gvgai_variant_missilecommand_4'>Missilecommand 4</li>
+        
+         <li class="game" id='gvgai_myAliens'>MyAliens</li>
+        
+         <li class="game" id='gvgai_variant_myAliens_1'>MyAliens 1</li>
+        
+         <li class="game" id='gvgai_variant_myAliens_2'>MyAliens 2</li>
+        
+         <li class="game" id='gvgai_plaqueattack'>Plaqueattack</li>
+        
+         <li class="game" id='gvgai_variant_plaqueattack_1'>Plaqueattack 1</li>
+        
+         <li class="game" id='gvgai_variant_plaqueattack_2'>Plaqueattack 2</li>
+        
+         <li class="game" id='gvgai_variant_plaqueattack_3'>Plaqueattack 3</li>
+        
+         <li class="game" id='gvgai_portals'>Portals</li>
+        
+         <li class="game" id='gvgai_variant_portals_1'>Portals 1</li>
+        
+         <li class="game" id='gvgai_variant_portals_2'>Portals 2</li>
+        
+         <li class="game" id='expt_preconditions'>Preconditions</li>
+        
+         <li class="game" id='expt_variant_preconditions_1'>Preconditions 1</li>
+        
+         <li class="game" id='expt_variant_preconditions_2'>Preconditions 2</li>
+        
+         <li class="game" id='expt_push_boulders'>Push boulders</li>
+        
+         <li class="game" id='expt_variant_push_boulders_1'>Push boulders 1</li>
+        
+         <li class="game" id='expt_variant_push_boulders_2'>Push boulders 2</li>
+        
+         <li class="game" id='expt_relational'>Relational</li>
+        
+         <li class="game" id='expt_variant_relational_1'>Relational 1</li>
+        
+         <li class="game" id='expt_variant_relational_2'>Relational 2</li>
+        
+         <li class="game" id='gvgai_sokoban'>Sokoban</li>
+        
+         <li class="game" id='gvgai_variant_sokoban_1'>Sokoban 1</li>
+        
+         <li class="game" id='gvgai_variant_sokoban_2'>Sokoban 2</li>
+        
+         <li class="game" id='gvgai_surprise'>Surprise</li>
+        
+         <li class="game" id='gvgai_variant_surprise_1'>Surprise 1</li>
+        
+         <li class="game" id='gvgai_variant_surprise_2'>Surprise 2</li>
+        
+         <li class="game" id='gvgai_survivezombies'>Survivezombies</li>
+        
+         <li class="game" id='gvgai_variant_survivezombies_1'>Survivezombies 1</li>
+        
+         <li class="game" id='gvgai_variant_survivezombies_2'>Survivezombies 2</li>
+        
+         <li class="game" id='gvgai_watergame'>Watergame</li>
+        
+         <li class="game" id='gvgai_variant_watergame_1'>Watergame 1</li>
+        
+         <li class="game" id='gvgai_variant_watergame_2'>Watergame 2</li>
+        
+         <li class="game" id='gvgai_zelda'>Zelda</li>
+        
+         <li class="game" id='gvgai_variant_zelda_1'>Zelda 1</li>
+        
+         <li class="game" id='gvgai_variant_zelda_2'>Zelda 2</li>
+        
+         <li class="game" id='gvgai_variant_zelda_3'>Zelda 3</li>
+        
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>

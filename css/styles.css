@@ -1,0 +1,356 @@
+body {
+    font-family: 'Helvetica Light', 'Lato', sans-serif;
+    /*font-weight: lighter;*/
+    font-size: 12pt;
+}
+
+h1 {
+    font-size: 30pt;
+    font-weight: normal;
+    padding: 0;
+    margin: .5em 0em 0em 0em;
+}
+
+h2 {
+    font-size: 24pt;
+    font-weight: normal;
+    padding: 0;
+    margin: .5em 0em 0em 0em;
+}
+
+input {
+    margin: 20px;
+}
+
+#info-box p {
+    text-align: center;
+}
+
+#message {
+    height: 75px;
+}
+
+.Flex-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-button {
+    margin: 10px;
+}
+
+.flex-button > button {
+  background-color: #f1f1f1;
+  width: 230px;
+  text-align: center;
+  line-height: 70px;
+  font-size: 70px;
+}
+
+p {
+    text-align: center;
+}
+
+.footer {
+
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding : 1rem;
+    text-align: center;
+}
+
+#db-box {
+    border: 5px solid #ccc;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 100px;
+
+    max-width:800px; 
+}
+
+#info-box {
+	border: 5px solid #ccc;
+    border-radius: 5px;
+	padding: 20px;
+	margin-top: 100px;
+
+	max-width:600px; 
+}
+
+
+#exp-box {
+    border: 5px solid #ccc;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 100px;
+
+    /*max-width:400px; */
+}
+
+#gjs-canvas {
+    border: 3px solid #ccc;
+    margin: 20px;
+}
+
+#gjs-loader {
+    height: 100%;
+    padding: 10% 0% 0% 30%;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 200px;
+}
+
+/*text editor*/
+li.main {
+    font-family: 'Lato', bold;
+    font-size: 14pt;
+}
+
+.topnav {
+    background-color: #6D7D7F;
+    overflow: hidden;
+}
+.side-bar {
+    flex-grow: 1;
+    overflow-y: scroll;
+    text-overflow: ellipsis;
+    /*overflow-wrap: break-word;*/
+    background-color: #eee; 
+}
+
+.game-bar {
+    padding-left: 10px;
+    flex-grow: 1;
+    overflow-y: scroll;
+    text-overflow: ellipsis;
+    /*overflow-wrap: break-word;*/
+    background-color: #eee; 
+}
+
+
+.textbox {
+    /*float: right;*/
+    /*position: fixed;*/
+    font-family: Consolas, monospace;
+    height: 100%;
+    width: 100%;
+    resize: none;
+    word-wrap: normal;
+    /*overflow-x: scroll;*/
+    overflow-y: scroll;
+}
+.container, html, body {
+    height: 98%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.row {
+    flex-grow: 4;
+    height: 100%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.topnav li {
+    display: inline;
+    padding: 0px 20px 0px 20px;
+
+}
+
+.topnav li.button:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.topnav li.active {
+    color: white;
+}
+
+.topnav li.pointer {
+    font-size: 14pt; 
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+.topnav li.plus {
+    font-size: 12pt;
+    padding: 0;
+}
+
+.side-bar li {
+    /*font-size: 18px;*/
+    padding: 0px 0px 10px 10px;
+}
+
+.side-bar li:hover {
+    background-color: #AFC8CC;
+    cursor: pointer;
+}
+
+
+.side-bar li:active {
+    background-color: #AFC8CC;
+}
+
+.side-bar li.active {
+    background-color: #6D7D7F;
+}
+
+.game-bar li {
+    /*font-size: 18px;*/
+    padding: 0px 0px 10px 10px;
+}
+
+.game-bar li:hover {
+    color: #555599;
+    cursor: pointer;
+}
+
+
+.game-bar li:active {
+    background-color: #AFC8CC;
+}
+
+.game-bar li.active {
+    background-color: #6D7D7F;
+}
+
+#create_modal button {
+    /*color: blue;*/
+    margin: 5px;
+}
+
+#level-num, #desc-num {
+    color: white;
+}
+
+/*Experiment settings styles*/
+
+
+#add-exp {
+    background-color: #aaa; 
+}
+
+#add-exp:hover {
+    cursor: pointer; 
+}
+
+.exp-container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.exp-container li{
+    /*display: inline;*/
+    padding: 0px 5px 0px 5px;
+    border-radius: 5px; 
+    justify-content: center;
+    /*border-style: solid; */
+    /*height: auto;*/
+}
+
+.exp-container li.align {
+    margin: 20px 1px 20px 1px;
+}
+
+.exp-container li.center {
+    padding: 5px 5px 5px 5px;
+}
+
+
+.exp-container li.level:hover {
+    cursor: pointer;
+}
+
+.exp-container li.delete:hover {
+    cursor: pointer;
+}
+
+.exp-container li.active {
+    background-color: #aaa;
+}
+
+.exp-container input[type='number'] {
+    height: 10px;
+    width: 30px;
+}
+
+.exp-container input[type='checkbox'] {
+    cursor: unset;
+
+}
+
+/*loading*/
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.loading-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0);  /* Fallback color */
+    background-color: rgba(0,0,0,0.4);  /* Black w/ opacity */ 
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .loading-modal {
+    display: block;
+}
