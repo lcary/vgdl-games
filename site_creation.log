@@ -1,0 +1,314 @@
+10015  wget -r --no-parent http://vgdl.herokuapp.com/games/
+
+10022  mkdir css
+10023  curl http://vgdl.herokuapp.com/css/styles.css -o css/styles.css
+10026  curl http://vgdl.herokuapp.com/games.js -o games.js
+10027  mkdir games
+10032  subl cookies.js
+10035  mkdir core
+10036  mkdir ontology
+10037  curl http://vgdl.herokuapp.com/gamejs-2.0.3-pre.js -o gamejs-2.0.3-pre.js
+10038  subl gamejs-2.0.3-pre.js
+10039  curl http://vgdl.herokuapp.com/tools.js -o tools.js
+10040  cd ontology
+10041  
+curl http://vgdl.herokuapp.com/ontology/avatar.js -o avatar.js
+curl http://vgdl.herokuapp.com/ontology/conditional.js -o conditional.js
+curl http://vgdl.herokuapp.com/ontology/constants.js -o constants.js
+curl http://vgdl.herokuapp.com/ontology/effect.js -o effect.js
+curl http://vgdl.herokuapp.com/ontology/physics.js -o physics.js
+curl http://vgdl.herokuapp.com/ontology/resource.js -o resource.js
+curl http://vgdl.herokuapp.com/ontology/sprite-induction.js -o sprite-induction.js
+curl http://vgdl.herokuapp.com/ontology/termination.js -o termination.js
+curl http://vgdl.herokuapp.com/ontology/vgdl-sprite.js -o vgdl-sprite.js
+curl http://vgdl.herokuapp.com/ontology/avatar.js -o avatar.js
+curl http://vgdl.herokuapp.com/ontology/conditional.js -o conditional.js
+curl http://vgdl.herokuapp.com/ontology/constants.js -o constants.js
+curl http://vgdl.herokuapp.com/ontology/effect.js -o effect.js
+curl http://vgdl.herokuapp.com/ontology/physics.js -o physics.js
+curl http://vgdl.herokuapp.com/ontology/resource.js -o resource.js
+curl http://vgdl.herokuapp.com/ontology/sprite-induction.js -o sprite-induction.js
+curl http://vgdl.herokuapp.com/ontology/termination.js -o termination.js
+curl http://vgdl.herokuapp.com/ontology/vgdl-sprite.js -o vgdl-sprite.js
+10042  ls
+10043  less avatar.js
+10044  cd ..
+10045  ll
+10046  cd games
+10047  mkdir gvgai_aliens
+mkdir gvgai_variant_aliens_1
+mkdir gvgai_variant_aliens_2
+mkdir gvgai_variant_aliens_3
+mkdir gvgai_variant_aliens_4
+mkdir expt_antagonist
+mkdir expt_variant_antagonist_1
+mkdir expt_variant_antagonist_2
+mkdir gvgai_avoidgeorge
+mkdir gvgai_variant_avoidgeorge_1
+mkdir gvgai_variant_avoidgeorge_2
+mkdir gvgai_variant_avoidgeorge_3
+mkdir gvgai_variant_avoidgeorge_4
+mkdir gvgai_bait
+mkdir gvgai_variant_bait_1
+mkdir gvgai_variant_bait_2
+mkdir gvgai_bees_and_birds
+mkdir gvgai_variant_bees_and_birds_1
+mkdir gvgai_boulderdash
+mkdir gvgai_variant_boulderdash_1
+mkdir gvgai_variant_boulderdash_2
+mkdir gvgai_butterflies
+mkdir gvgai_variant_butterflies_1
+mkdir gvgai_variant_butterflies_2
+mkdir gvgai_chase
+mkdir gvgai_variant_chase_1
+mkdir gvgai_variant_chase_2
+mkdir gvgai_variant_chase_3
+mkdir gvgai_closing_gates
+mkdir gvgai_variant_closing_gates_1
+mkdir gvgai_corridor
+mkdir gvgai_variant_corridor_1
+mkdir expt_ee
+mkdir expt_variant_ee_1
+mkdir expt_variant_ee_2
+mkdir expt_variant_ee_3
+mkdir gvgai_frogs
+mkdir gvgai_variant_frogs_1
+mkdir gvgai_variant_frogs_2
+mkdir gvgai_variant_frogs_3
+mkdir expt_helper
+mkdir expt_variant_helper_1
+mkdir expt_variant_helper_2
+mkdir gvgai_jaws
+mkdir gvgai_variant_jaws_1
+mkdir gvgai_variant_jaws_2
+mkdir gvgai_lemmings
+mkdir gvgai_variant_lemmings_1
+mkdir gvgai_variant_lemmings_2
+mkdir gvgai_variant_lemmings_3
+mkdir gvgai_missilecommand
+mkdir gvgai_variant_missilecommand_1
+mkdir gvgai_variant_missilecommand_2
+mkdir gvgai_variant_missilecommand_3
+mkdir gvgai_variant_missilecommand_4
+mkdir gvgai_myAliens
+mkdir gvgai_variant_myAliens_1
+mkdir gvgai_variant_myAliens_2
+mkdir gvgai_plaqueattack
+mkdir gvgai_variant_plaqueattack_1
+mkdir gvgai_variant_plaqueattack_2
+mkdir gvgai_variant_plaqueattack_3
+mkdir gvgai_portals
+mkdir gvgai_variant_portals_1
+mkdir gvgai_variant_portals_2
+mkdir expt_preconditions
+mkdir expt_variant_preconditions_1
+mkdir expt_variant_preconditions_2
+mkdir expt_push_boulders
+mkdir expt_variant_push_boulders_1
+mkdir expt_variant_push_boulders_2
+mkdir expt_relational
+mkdir expt_variant_relational_1
+mkdir expt_variant_relational_2
+mkdir gvgai_sokoban
+mkdir gvgai_variant_sokoban_1
+mkdir gvgai_variant_sokoban_2
+mkdir gvgai_surprise
+mkdir gvgai_variant_surprise_1
+mkdir gvgai_variant_surprise_2
+mkdir gvgai_survivezombies
+mkdir gvgai_variant_survivezombies_1
+mkdir gvgai_variant_survivezombies_2
+mkdir gvgai_watergame
+mkdir gvgai_variant_watergame_1
+mkdir gvgai_variant_watergame_2
+mkdir gvgai_zelda
+mkdir gvgai_variant_zelda_1
+mkdir gvgai_variant_zelda_2
+mkdir gvgai_variant_zelda_3mkdir gvgai_aliens
+mkdir gvgai_variant_aliens_1
+mkdir gvgai_variant_aliens_2
+mkdir gvgai_variant_aliens_3
+mkdir gvgai_variant_aliens_4
+mkdir expt_antagonist
+mkdir expt_variant_antagonist_1
+mkdir expt_variant_antagonist_2
+mkdir gvgai_avoidgeorge
+mkdir gvgai_variant_avoidgeorge_1
+mkdir gvgai_variant_avoidgeorge_2
+mkdir gvgai_variant_avoidgeorge_3
+mkdir gvgai_variant_avoidgeorge_4
+mkdir gvgai_bait
+mkdir gvgai_variant_bait_1
+mkdir gvgai_variant_bait_2
+mkdir gvgai_bees_and_birds
+mkdir gvgai_variant_bees_and_birds_1
+mkdir gvgai_boulderdash
+mkdir gvgai_variant_boulderdash_1
+mkdir gvgai_variant_boulderdash_2
+mkdir gvgai_butterflies
+mkdir gvgai_variant_butterflies_1
+mkdir gvgai_variant_butterflies_2
+mkdir gvgai_chase
+mkdir gvgai_variant_chase_1
+mkdir gvgai_variant_chase_2
+mkdir gvgai_variant_chase_3
+mkdir gvgai_closing_gates
+mkdir gvgai_variant_closing_gates_1
+mkdir gvgai_corridor
+mkdir gvgai_variant_corridor_1
+mkdir expt_ee
+mkdir expt_variant_ee_1
+mkdir expt_variant_ee_2
+mkdir expt_variant_ee_3
+mkdir gvgai_frogs
+mkdir gvgai_variant_frogs_1
+mkdir gvgai_variant_frogs_2
+mkdir gvgai_variant_frogs_3
+mkdir expt_helper
+mkdir expt_variant_helper_1
+mkdir expt_variant_helper_2
+mkdir gvgai_jaws
+mkdir gvgai_variant_jaws_1
+mkdir gvgai_variant_jaws_2
+mkdir gvgai_lemmings
+mkdir gvgai_variant_lemmings_1
+mkdir gvgai_variant_lemmings_2
+mkdir gvgai_variant_lemmings_3
+mkdir gvgai_missilecommand
+mkdir gvgai_variant_missilecommand_1
+mkdir gvgai_variant_missilecommand_2
+mkdir gvgai_variant_missilecommand_3
+mkdir gvgai_variant_missilecommand_4
+mkdir gvgai_myAliens
+mkdir gvgai_variant_myAliens_1
+mkdir gvgai_variant_myAliens_2
+mkdir gvgai_plaqueattack
+mkdir gvgai_variant_plaqueattack_1
+mkdir gvgai_variant_plaqueattack_2
+mkdir gvgai_variant_plaqueattack_3
+mkdir gvgai_portals
+mkdir gvgai_variant_portals_1
+mkdir gvgai_variant_portals_2
+mkdir expt_preconditions
+mkdir expt_variant_preconditions_1
+mkdir expt_variant_preconditions_2
+mkdir expt_push_boulders
+mkdir expt_variant_push_boulders_1
+mkdir expt_variant_push_boulders_2
+mkdir expt_relational
+mkdir expt_variant_relational_1
+mkdir expt_variant_relational_2
+mkdir gvgai_sokoban
+mkdir gvgai_variant_sokoban_1
+mkdir gvgai_variant_sokoban_2
+mkdir gvgai_surprise
+mkdir gvgai_variant_surprise_1
+mkdir gvgai_variant_surprise_2
+mkdir gvgai_survivezombies
+mkdir gvgai_variant_survivezombies_1
+mkdir gvgai_variant_survivezombies_2
+mkdir gvgai_watergame
+mkdir gvgai_variant_watergame_1
+mkdir gvgai_variant_watergame_2
+mkdir gvgai_zelda
+mkdir gvgai_variant_zelda_1
+mkdir gvgai_variant_zelda_2
+mkdir gvgai_variant_zelda_3
+10048  ll
+10049  ls expt_antagonist
+10050  curl http://vgdl.herokuapp.com/games/gvgai_aliens/0 -o gvgai_aliens/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_aliens_1/0 -o gvgai_variant_aliens_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_aliens_2/0 -o gvgai_variant_aliens_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_aliens_3/0 -o gvgai_variant_aliens_3/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_aliens_4/0 -o gvgai_variant_aliens_4/0
+curl http://vgdl.herokuapp.com/games/expt_antagonist/0 -o expt_antagonist/0
+curl http://vgdl.herokuapp.com/games/expt_variant_antagonist_1/0 -o expt_variant_antagonist_1/0
+curl http://vgdl.herokuapp.com/games/expt_variant_antagonist_2/0 -o expt_variant_antagonist_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_avoidgeorge/0 -o gvgai_avoidgeorge/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_avoidgeorge_1/0 -o gvgai_variant_avoidgeorge_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_avoidgeorge_2/0 -o gvgai_variant_avoidgeorge_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_avoidgeorge_3/0 -o gvgai_variant_avoidgeorge_3/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_avoidgeorge_4/0 -o gvgai_variant_avoidgeorge_4/0
+curl http://vgdl.herokuapp.com/games/gvgai_bait/0 -o gvgai_bait/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_bait_1/0 -o gvgai_variant_bait_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_bait_2/0 -o gvgai_variant_bait_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_bees_and_birds/0 -o gvgai_bees_and_birds/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_bees_and_birds_1/0 -o gvgai_variant_bees_and_birds_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_boulderdash/0 -o gvgai_boulderdash/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_boulderdash_1/0 -o gvgai_variant_boulderdash_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_boulderdash_2/0 -o gvgai_variant_boulderdash_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_butterflies/0 -o gvgai_butterflies/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_butterflies_1/0 -o gvgai_variant_butterflies_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_butterflies_2/0 -o gvgai_variant_butterflies_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_chase/0 -o gvgai_chase/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_chase_1/0 -o gvgai_variant_chase_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_chase_2/0 -o gvgai_variant_chase_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_chase_3/0 -o gvgai_variant_chase_3/0
+curl http://vgdl.herokuapp.com/games/gvgai_closing_gates/0 -o gvgai_closing_gates/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_closing_gates_1/0 -o gvgai_variant_closing_gates_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_corridor/0 -o gvgai_corridor/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_corridor_1/0 -o gvgai_variant_corridor_1/0
+curl http://vgdl.herokuapp.com/games/expt_ee/0 -o expt_ee/0
+curl http://vgdl.herokuapp.com/games/expt_variant_ee_1/0 -o expt_variant_ee_1/0
+curl http://vgdl.herokuapp.com/games/expt_variant_ee_2/0 -o expt_variant_ee_2/0
+curl http://vgdl.herokuapp.com/games/expt_variant_ee_3/0 -o expt_variant_ee_3/0
+curl http://vgdl.herokuapp.com/games/gvgai_frogs/0 -o gvgai_frogs/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_frogs_1/0 -o gvgai_variant_frogs_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_frogs_2/0 -o gvgai_variant_frogs_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_frogs_3/0 -o gvgai_variant_frogs_3/0
+curl http://vgdl.herokuapp.com/games/expt_helper/0 -o expt_helper/0
+curl http://vgdl.herokuapp.com/games/expt_variant_helper_1/0 -o expt_variant_helper_1/0
+curl http://vgdl.herokuapp.com/games/expt_variant_helper_2/0 -o expt_variant_helper_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_jaws/0 -o gvgai_jaws/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_jaws_1/0 -o gvgai_variant_jaws_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_jaws_2/0 -o gvgai_variant_jaws_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_lemmings/0 -o gvgai_lemmings/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_lemmings_1/0 -o gvgai_variant_lemmings_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_lemmings_2/0 -o gvgai_variant_lemmings_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_lemmings_3/0 -o gvgai_variant_lemmings_3/0
+curl http://vgdl.herokuapp.com/games/gvgai_missilecommand/0 -o gvgai_missilecommand/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_missilecommand_1/0 -o gvgai_variant_missilecommand_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_missilecommand_2/0 -o gvgai_variant_missilecommand_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_missilecommand_3/0 -o gvgai_variant_missilecommand_3/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_missilecommand_4/0 -o gvgai_variant_missilecommand_4/0
+curl http://vgdl.herokuapp.com/games/gvgai_myAliens/0 -o gvgai_myAliens/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_myAliens_1/0 -o gvgai_variant_myAliens_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_myAliens_2/0 -o gvgai_variant_myAliens_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_plaqueattack/0 -o gvgai_plaqueattack/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_plaqueattack_1/0 -o gvgai_variant_plaqueattack_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_plaqueattack_2/0 -o gvgai_variant_plaqueattack_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_plaqueattack_3/0 -o gvgai_variant_plaqueattack_3/0
+curl http://vgdl.herokuapp.com/games/gvgai_portals/0 -o gvgai_portals/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_portals_1/0 -o gvgai_variant_portals_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_portals_2/0 -o gvgai_variant_portals_2/0
+curl http://vgdl.herokuapp.com/games/expt_preconditions/0 -o expt_preconditions/0
+curl http://vgdl.herokuapp.com/games/expt_variant_preconditions_1/0 -o expt_variant_preconditions_1/0
+curl http://vgdl.herokuapp.com/games/expt_variant_preconditions_2/0 -o expt_variant_preconditions_2/0
+curl http://vgdl.herokuapp.com/games/expt_push_boulders/0 -o expt_push_boulders/0
+curl http://vgdl.herokuapp.com/games/expt_variant_push_boulders_1/0 -o expt_variant_push_boulders_1/0
+curl http://vgdl.herokuapp.com/games/expt_variant_push_boulders_2/0 -o expt_variant_push_boulders_2/0
+curl http://vgdl.herokuapp.com/games/expt_relational/0 -o expt_relational/0
+curl http://vgdl.herokuapp.com/games/expt_variant_relational_1/0 -o expt_variant_relational_1/0
+curl http://vgdl.herokuapp.com/games/expt_variant_relational_2/0 -o expt_variant_relational_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_sokoban/0 -o gvgai_sokoban/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_sokoban_1/0 -o gvgai_variant_sokoban_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_sokoban_2/0 -o gvgai_variant_sokoban_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_surprise/0 -o gvgai_surprise/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_surprise_1/0 -o gvgai_variant_surprise_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_surprise_2/0 -o gvgai_variant_surprise_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_survivezombies/0 -o gvgai_survivezombies/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_survivezombies_1/0 -o gvgai_variant_survivezombies_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_survivezombies_2/0 -o gvgai_variant_survivezombies_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_watergame/0 -o gvgai_watergame/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_watergame_1/0 -o gvgai_variant_watergame_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_watergame_2/0 -o gvgai_variant_watergame_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_zelda/0 -o gvgai_zelda/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_zelda_1/0 -o gvgai_variant_zelda_1/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_zelda_2/0 -o gvgai_variant_zelda_2/0
+curl http://vgdl.herokuapp.com/games/gvgai_variant_zelda_3/0 -o gvgai_variant_zelda_3/0
+
+10066  curl http://vgdl.herokuapp.com/core/basic-game.js -o basic-game.js
+10067  curl http://vgdl.herokuapp.com/core/vgdl-parser.js -o vgdl-parser.js
+10098* cd vgdl_games/vgdl.herokuapp.com/games
+10099* ll
+10100* curl http://vgdl.herokuapp.com/play_game.js -o play_game.js
