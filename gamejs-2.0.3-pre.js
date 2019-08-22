@@ -31,7 +31,7 @@
 
 	Yabble.unit = {};
 
-	var _moduleRoot = '',
+	var _moduleRoot = '../..',
 		_modules,
 		_callbacks,
 		_fetchFunc,
