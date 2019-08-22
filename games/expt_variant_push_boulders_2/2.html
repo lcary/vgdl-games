@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap:700|Lato" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="/gamejs-2.0.3-pre.js"></script>
+    
+    <script src="/tools.js"></script>
+    <script src="/ontology/constants.js"></script>
+    
+    <script src="/ontology/physics.js"></script>
+    <script src="/ontology/termination.js"></script>
+    <script src="/ontology/conditional.js"></script>
+    <script src="/ontology/effect.js"></script>
+    <script src="/ontology/sprite-induction.js"></script>
+
+    <script src="/ontology/vgdl-sprite.js"></script>
+    <script src="/ontology/avatar.js"></script>
+    <script src="/ontology/resource.js"></script>
+
+    <script src="/core/basic-game.js"></script>
+    <script src="/core/vgdl-parser.js"></script>
+
+    <script type='text/javascript'>
+
+        var vgdl_game = {level: `wwwwwwwwwwwwwwwwwwwwww
+w     A  1  p 1  w   w
+w  1 wwwwwwww   1    w
+wr     dqp    2 p 11 w
+wwwwwwwwwwwwwwwwwww ww
+ww   w    w ww   w  zw
+ww  q   w   1 d ww   w
+w  pd1   ww  w   ww ww
+wg pu  d 2www up    ww
+wwwwwwwwwwwwwwwwwwwwww`,
+                         game : `BasicGame frame_rate=30
+    SpriteSet
+        avatar > MovingAvatar color=DARKBLUE
+        goal > ResourcePack color=PINK
+        poison1 > ResourcePack color=ORANGE
+        poison2 > ResourcePack color=GOLD
+        poison3 > ResourcePack color=DARKGRAY
+        box1 > ResourcePack color=GREEN
+        box2 > ResourcePack color=YELLOW
+	dynamite > ResourcePack color=PURPLE
+	fuse > ResourcePack
+		fuseright > color=BLUE
+		fuseup > color=LIGHTBLUE
+	litfuse > Missile 
+		litfuseright > color=RED orientation=RIGHT
+		litfuseup > color=LIGHTRED orientation=UP
+        wall > Immovable color=DARKGRAY
+    LevelMapping
+        p > poison1
+        q > poison2
+        1 > box1
+        2 > box2
+        w > wall
+        g > goal
+	r > fuseright
+	u > fuseup
+        z > poison3
+	d > dynamite
+    InteractionSet
+	fuse box1 > stepBack
+	box1 fuse > stepBack
+	fuse box2 > stepBack
+	box2 fuse > stepBack
+	fuse box3 > stepBack
+	box3 fuse > stepBack
+	fuse poison1 > stepBack
+	poison1 fuse > stepBack
+	fuse poison2 > stepBack
+	fuse box1 > stepBack
+	box1 fuse > stepBack
+	fuse fuse > stepBack
+	litfuse avatar > nothing
+	avatar litfuse > nothing
+	poison1 litfuse > nothing
+	litfuse poison1 > killSprite
+	poison2 litfuse > nothing
+	litfuse poison2 > killSprite
+	poison3 litfuse > nothing
+	litfuse poison3 > nothing
+	litfuse box1 > killSprite
+	box1 litfuse > nothing
+	litfuse box2 > killSprite
+	box2 litfuse > nothing
+	litfuse box3 > killSprite
+	box3 litfuse > nothing
+	dynamite litfuse > bounceForward
+	litfuse dynamite > killSprite
+	fuseright avatar > transformTo stype=litfuseright
+	fuseup avatar > transformTo stype=litfuseup
+	avatar fuse > nothing
+	dynamite dynamite > stepBack
+	avatar dynamite > stepBack
+	dynamite avatar > nothing
+	dynamite poison2 > killSprite
+	poison2 dynamite > killSprite
+	dynamite poison1 > stepBack
+	poison1 dynamite > stepBack
+	dynamite wall > stepBack
+	wall dynamite > stepBack
+	dynamite box1 > stepBack
+	box1 dynamite > stepBack
+	dynamite box2 > stepBack
+	box2 dynamite > stepBack
+	dynamite goal > killSprite
+	goal dynamite > killSprite	
+        avatar wall > stepBack
+        avatar poison1 > killSprite
+        avatar poison2 > killSprite
+        avatar poison3 > killSprite
+        goal avatar > killSprite
+        box1 avatar > bounceForward
+        box2 avatar  > killSprite
+        poison1 wall > stepBack
+        poison2 wall > stepBack
+        poison3 wall > stepBack
+        goal box1 > stepBack
+        goal box2 > stepBack
+        goal wall > stepBack
+        goal poison1 > stepBack
+        goal poison2 > stepBack
+        box1 wall    > stepBack
+        box1 box2    > nothing
+        box2 wall    > stepBack
+        box1 box1 > stepBack
+        poison1 box1 > killSprite
+        poison2 box1 > bounceForward
+	poison1 box2 > stepBack
+        poison1 box2 > stepBack
+        poison2 box2 >stepBack
+	box1 poison2 > nothing
+    TerminationSet
+	Timeout limit=2000 win=False
+        SpriteCounter stype=goal    limit=0 win=True bonus=10
+        SpriteCounter stype=avatar  limit=0 win=False`};
+
+
+        var exp_id = '0';
+        var data = {};
+        data.real = 'expt_variant_push_boulders_2'
+        data.name = 'Push boulders 2'
+        data.desc = 0
+        data.level = 2
+        data.pair = 2
+        data.next = true
+        
+        var show_score = true
+
+        require.setModuleRoot('/');
+        require.run('play_game');
+    </script>
+</head>
+<style>
+#score{
+    font-size:20px;
+}
+</style>
+<body>
+    <div class="Flex-Container">
+        <div id='header' class="Flex-Container">
+          <h1 id="title">Push boulders 2</h1>
+        </div> 
+        <div id='message'>
+        </div>
+        <div id='game-body' class='Flex-Container'>
+            <div id="gjs-loader">
+             <progress max=1 min=0 steps=0.1></progress>
+             <br/>Loading...
+            </div>
+            <canvas id="gjs-canvas"></canvas>
+
+        </div>
+        <div class="flex-buttons">
+            <div class="flex-button" id='start-div'>
+                <button id="start">Start</button>
+            </div>
+        </div>
+        <div class="flex-buttons">
+            <div class="flex-button" id='retry-div'>
+                <button id="retry">Retry</button>
+            </div>
+            
+            <div class="flex-button" id='prev-div'>
+                <button id='prev'>Previous Level</button>
+            </div>
+            
+
+            
+            <div class="flex-button" id='next-div'>  
+                <button id='next'>Next Instance</button>
+            </div>
+            
+        </div>
+        <div class="flex-buttons">
+            <div class="flex-button" id="return-div">
+                <button id="return">Return to Games List</button>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="loading-modal">
+    <div class='modal-content Flex-Container'>
+        <p>Processing data.</p> 
+        <p>This could take a couple of seconds.</p>
+    </div>
+  </div>
+</body>
+</html>

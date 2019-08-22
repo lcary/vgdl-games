@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap:700|Lato" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="/gamejs-2.0.3-pre.js"></script>
+    
+    <script src="/tools.js"></script>
+    <script src="/ontology/constants.js"></script>
+    
+    <script src="/ontology/physics.js"></script>
+    <script src="/ontology/termination.js"></script>
+    <script src="/ontology/conditional.js"></script>
+    <script src="/ontology/effect.js"></script>
+    <script src="/ontology/sprite-induction.js"></script>
+
+    <script src="/ontology/vgdl-sprite.js"></script>
+    <script src="/ontology/avatar.js"></script>
+    <script src="/ontology/resource.js"></script>
+
+    <script src="/core/basic-game.js"></script>
+    <script src="/core/vgdl-parser.js"></script>
+
+    <script type='text/javascript'>
+
+        var vgdl_game = {level: `wwwwwwwwwwwwwwwwwwwwwwwwwwww
++++++++++++w g w++++++++++++
+00===0========0============2
+00000==000000000000000000002
+000=0000000000000000000===12
++++++++++++++++++++++++++++w
+00===0=0000000000000000====2
+++++++++++++++++++A++++++++w
+00000000000000000===00000000
+wwwwwwwwwwwwwwwwwwwwwwwwwwww`,
+                         game : `BasicGame
+    SpriteSet
+        safety > Resource  limit=2 color=BROWN
+        structure > Immovable
+            water > color=MPUYEI
+            goal  > color=GREEN
+        truck  >
+            rightTruck  > Missile   orientation=RIGHT
+                fastRtruck  > speed=0.6  color=ORANGE
+                slowRtruck  > speed=0.3  color=RED
+            leftTruck  > Missile   orientation=LEFT
+                fastLtruck  > speed=0.6  color=LIGHTORANGE
+                slowLtruck  > speed=0.3  color=LIGHTRED
+        avatar > ShootAvatar color=DARKBLUE stype=mud
+        wall > Immovable color=DARKGRAY
+	bridge > Immovable color=YELLOW
+	mud > Missile color=PURPLE
+
+    InteractionSet
+	avatar bridge > nothing
+	bridge avatar > nothing
+	mud bridge > nothing
+	bridge mud > nothing
+	mud mud > nothing
+	mud avatar > nothing
+	avatar mud > nothing
+	mud wall > killSprite
+	wall mud > nothing
+	mud goal > nothing
+	goal mud > nothing
+	mud water > transformTo stype=bridge
+	water bridge > killSprite
+        fastRtruck mud > nothing
+        slowRtruck mud > nothing
+	mud fastRtruck > nothing
+	mud slowRtruck > nothing
+
+        fastLtruck mud > nothing
+        slowLtruck mud > nothing
+	mud fastLtruck > nothing
+	mud slowLtruck > nothing
+
+        goal avatar  > killSprite 
+	goal avatar  > changeScore value=1
+        avatar wall  > stepBack
+        avatar EOS > wrapAround
+        avatar water > killIfHasLess  resource=safety limit=-1
+        avatar water > changeResource resource=safety value=-1
+
+        fastRtruck wall > nothing
+        slowRtruck wall > nothing
+        fastRtruck fastLtruck > nothing
+        slowRtruck slowLtruck > nothing
+        fastRtruck slowLtruck > nothing
+        fastRtruck fastRtruck > nothing
+        slowRtruck slowRtruck > nothing
+        fastRtruck slowRtruck > nothing
+        avatar fastRtruck > killSprite
+        avatar slowRtruck > killSprite
+        slowRtruck  wall   > reverseDirection
+        fastRtruck  wall  > reverseDirection
+
+        fastLtruck wall > nothing
+        slowLtruck wall > nothing
+        fastLtruck fastLtruck > nothing
+        slowLtruck slowLtruck > nothing
+        fastLtruck slowLtruck > nothing
+        avatar fastLtruck > killSprite
+        avatar slowLtruck > killSprite
+        slowLtruck  wall   > reverseDirection
+        fastLtruck  wall  > reverseDirection
+
+    TerminationSet
+	Timeout limit=2000 win=False
+        SpriteCounter stype=goal   limit=0 win=True bonus=10
+        SpriteCounter stype=avatar limit=0 win=False
+
+    LevelMapping
+        g > goal
+        0 > water
+        - > slowRtruck
+        x > fastRtruck
+        _ > slowLtruck
+        l > fastLtruck
+        w > wall
+	b > bridge
+	m > mud`};
+
+
+        var exp_id = '0';
+        var data = {};
+        data.real = 'gvgai_variant_frogs_3'
+        data.name = 'Frogs 3'
+        data.desc = 0
+        data.level = 4
+        data.pair = 4
+        data.next = false
+        
+        var show_score = true
+
+        require.setModuleRoot('/');
+        require.run('play_game');
+    </script>
+</head>
+<style>
+#score{
+    font-size:20px;
+}
+</style>
+<body>
+    <div class="Flex-Container">
+        <div id='header' class="Flex-Container">
+          <h1 id="title">Frogs 3</h1>
+        </div> 
+        <div id='message'>
+        </div>
+        <div id='game-body' class='Flex-Container'>
+            <div id="gjs-loader">
+             <progress max=1 min=0 steps=0.1></progress>
+             <br/>Loading...
+            </div>
+            <canvas id="gjs-canvas"></canvas>
+
+        </div>
+        <div class="flex-buttons">
+            <div class="flex-button" id='start-div'>
+                <button id="start">Start</button>
+            </div>
+        </div>
+        <div class="flex-buttons">
+            <div class="flex-button" id='retry-div'>
+                <button id="retry">Retry</button>
+            </div>
+            
+            <div class="flex-button" id='prev-div'>
+                <button id='prev'>Previous Level</button>
+            </div>
+            
+
+            
+        </div>
+        <div class="flex-buttons">
+            <div class="flex-button" id="return-div">
+                <button id="return">Return to Games List</button>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="loading-modal">
+    <div class='modal-content Flex-Container'>
+        <p>Processing data.</p> 
+        <p>This could take a couple of seconds.</p>
+    </div>
+  </div>
+</body>
+</html>

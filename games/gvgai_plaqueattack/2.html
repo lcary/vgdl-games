@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap:700|Lato" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="/gamejs-2.0.3-pre.js"></script>
+    
+    <script src="/tools.js"></script>
+    <script src="/ontology/constants.js"></script>
+    
+    <script src="/ontology/physics.js"></script>
+    <script src="/ontology/termination.js"></script>
+    <script src="/ontology/conditional.js"></script>
+    <script src="/ontology/effect.js"></script>
+    <script src="/ontology/sprite-induction.js"></script>
+
+    <script src="/ontology/vgdl-sprite.js"></script>
+    <script src="/ontology/avatar.js"></script>
+    <script src="/ontology/resource.js"></script>
+
+    <script src="/core/basic-game.js"></script>
+    <script src="/core/vgdl-parser.js"></script>
+
+    <script type='text/javascript'>
+
+        var vgdl_game = {level: `wwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwww
+w...n...n...n...n...n..w
+w......................w
+w......................w
+w......................w
+w...........A..........w
+w......................w
+w......................w
+w......................w
+w......................w
+w......................w
+w......................w
+w......................w
+w......................w
+w......................w
+www...ww.www.www.www..ww
+wv....ww.www.www.www..vw
+wwwwwwww.www.www.wwwwwww
+wwwwwwwwvwwwvwwwvwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwww
+`,
+                         game : `BasicGame square_size=25
+  SpriteSet
+    floor > Immovable color=WHITE
+    fullMolarInf > Immovable color=YELLOW
+    fullMolarSup > Immovable color=RED
+    deadMolarInf > Immovable color=GREEN
+    deadMolarSup > Immovable color=BLUE
+
+    avatar  > ShootAvatar stype=fluor color=DARKBLUE frameRate=8
+    hotdog > Chaser speed=1 cooldown=10 stype=fullMolarInf color=ORANGE
+    burger > Chaser speed=1 cooldown=10 stype=fullMolarSup color=BROWN
+
+    hotdoghole > SpawnPoint color=LIGHTGRAY  stype=hotdog  prob=0.15 cooldown=8 total=5 color=PURPLE
+    burgerhole > SpawnPoint color=LIGHTBLUE stype=burger  prob=0.15 cooldown=8 total=5 color=PINK
+
+    fluor > Missile color=LIGHTRED
+    wall > Immovable color=GRAY
+
+
+  LevelMapping
+    h > hotdog floor
+    d > hotdoghole floor
+    b > burger floor
+    v > burgerhole floor
+    n > fullMolarSup floor
+    m > fullMolarInf floor
+    . > floor
+    A > avatar floor
+
+  InteractionSet
+    avatar wall > stepBack
+    hotdog wall > stepBack
+    burger wall > stepBack
+
+    fluor hotdog > scoreChange value=1
+    fluor hotdog > killSprite
+
+    hotdog fluor  > scoreChange value=1
+    hotdog fluor   > killSprite 
+    
+    fluor burger > scoreChange value=1
+    fluor burger > killSprite
+    
+    burger fluor  > scoreChange value=1
+    burger fluor   > killSprite
+    
+    fluor wall   > killSprite
+
+    fullMolarInf hotdog > scoreChange value=-3 
+    hotdog fullMolarInf > killSprite
+    fullMolarInf hotdog > transformTo stype=deadMolarInf
+    
+    fullMolarInf burger > scoreChange value=-3
+    burger fullMolarInf > killSprite
+    fullMolarInf burger > transformTo stype=deadMolarInf
+    
+    deadMolarInf avatar > scoreChange value=1
+    deadMolarInf avatar > transformTo stype=fullMolarInf
+    
+    fullMolarSup hotdog > scoreChange value=-3
+    hotdog fullMolarSup > killSprite
+    fullMolarSup hotdog > transformTo stype=deadMolarSup
+    
+    fullMolarSup burger > scoreChange value=-3
+    burger fullMolarSup > killSprite
+    fullMolarSup burger > transformTo stype=deadMolarSup
+    
+    deadMolarSup avatar > scoreChange value=1
+    deadMolarSup avatar > transformTo stype=fullMolarSup
+    
+
+  TerminationSet
+    Timeout limit=2000 win=False
+    MultiSpriteCounter stype1=fullMolarInf stype2=fullMolarSup limit=0 win=False
+    MultiSpriteCounter stype1=hotdoghole stype2=hotdog stype3=burger stype4=burgerhole limit=0 win=True bonus=10`};
+
+
+        var exp_id = '0';
+        var data = {};
+        data.real = 'gvgai_plaqueattack'
+        data.name = 'Plaqueattack'
+        data.desc = 0
+        data.level = 2
+        data.pair = 2
+        data.next = true
+        
+        var show_score = true
+
+        require.setModuleRoot('/');
+        require.run('play_game');
+    </script>
+</head>
+<style>
+#score{
+    font-size:20px;
+}
+</style>
+<body>
+    <div class="Flex-Container">
+        <div id='header' class="Flex-Container">
+          <h1 id="title">Plaqueattack</h1>
+        </div> 
+        <div id='message'>
+        </div>
+        <div id='game-body' class='Flex-Container'>
+            <div id="gjs-loader">
+             <progress max=1 min=0 steps=0.1></progress>
+             <br/>Loading...
+            </div>
+            <canvas id="gjs-canvas"></canvas>
+
+        </div>
+        <div class="flex-buttons">
+            <div class="flex-button" id='start-div'>
+                <button id="start">Start</button>
+            </div>
+        </div>
+        <div class="flex-buttons">
+            <div class="flex-button" id='retry-div'>
+                <button id="retry">Retry</button>
+            </div>
+            
+            <div class="flex-button" id='prev-div'>
+                <button id='prev'>Previous Level</button>
+            </div>
+            
+
+            
+            <div class="flex-button" id='next-div'>  
+                <button id='next'>Next Instance</button>
+            </div>
+            
+        </div>
+        <div class="flex-buttons">
+            <div class="flex-button" id="return-div">
+                <button id="return">Return to Games List</button>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="loading-modal">
+    <div class='modal-content Flex-Container'>
+        <p>Processing data.</p> 
+        <p>This could take a couple of seconds.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,4 +1,8 @@
 import os
+import urllib.request
+
+ORIG_SITE_ROOT = "http://vgdl.herokuapp.com/"
+
 cwd = os.getcwd()
 gd = os.path.join(cwd, 'games')
 games = os.listdir(gd)
@@ -23,7 +27,7 @@ def rename_to_html(game_dirs):
         os.rename(fpath, newfpath)
         print(fname, '->', newfpath)
 
-def backfill_htmls(game_dirs):
+def to_backfill(game_dirs):
     latests = []
     for g in game_dirs:
         gdfs = os.listdir(g)
@@ -36,7 +40,20 @@ def backfill_htmls(game_dirs):
         with open(fname, 'r') as f:
             if 'data.next = true' in f.read():
                 nexts.append((g, latest + 1))
-    print(len(nexts), 'games require additional downloads')
+    return nexts
+
+def backfill_htmls(game_dirs):
+    nexts = to_backfill(game_dirs)
+    while nexts:
+        print(len(nexts), 'games require additional downloads')
+        for g, nextN in nexts:
+            rpath = os.path.relpath(g)
+            url = os.path.join(ORIG_SITE_ROOT, rpath, str(nextN))
+            newf = os.path.join(g, str(nextN) + '.html')
+            print("Download(", url, "->", newf, ")")
+            urllib.request.urlretrieve(url, newf)
+        nexts = to_backfill(game_dirs)
+    print('no additional game backfill required')
 
 rename_to_html(gds)
 

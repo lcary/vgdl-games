@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap:700|Lato" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="/gamejs-2.0.3-pre.js"></script>
+    
+    <script src="/tools.js"></script>
+    <script src="/ontology/constants.js"></script>
+    
+    <script src="/ontology/physics.js"></script>
+    <script src="/ontology/termination.js"></script>
+    <script src="/ontology/conditional.js"></script>
+    <script src="/ontology/effect.js"></script>
+    <script src="/ontology/sprite-induction.js"></script>
+
+    <script src="/ontology/vgdl-sprite.js"></script>
+    <script src="/ontology/avatar.js"></script>
+    <script src="/ontology/resource.js"></script>
+
+    <script src="/core/basic-game.js"></script>
+    <script src="/core/vgdl-parser.js"></script>
+
+    <script type='text/javascript'>
+
+        var vgdl_game = {level: `wwwwwwwwwwwwwwwwwwwwwwwwww
+w.................o..o...w
+w---..e..........b-----..w
+w....xxx....o....o.oxoo.ow
+wx.......o.o.....oxo...oow
+wwwwwwwwww........o...wxxw
+wb-...co.....o........wxxw
+w--........Ao....o....wxxw
+wooo.......o.....-....w..w
+w......x....wwwwx-x.oow..w
+w...o.xx.o......o..xoxx..w
+wc--.....x..ooxxo-....w..w
+wwwwwwwwwwwwwwwwwwwwwwwwww`,
+                         game : `BasicGame
+    SpriteSet 
+	wall > Immovable color=DARKGRAY
+	sword > Flicker color=PINK limit=1
+	dirt > Immovable color=BROWN 
+	exitdoor > Immovable color=GREEN 
+	diamond > Resource color=YELLOW limit=10
+	boulder > Missile color=GRAY orientation=DOWN speed=0.2
+
+        avatar  > ShootAvatar  color=DARKBLUE stype=sword frameRate=8 
+	crab > Chaser stype=avatar speed=0.1 cooldown=2 color=GOLD 
+
+        butterfly > Chaser stype=avatar speed=0.1 cooldown=2 color=RED
+
+    LevelMapping
+	. > dirt
+	e > exitdoor
+	o > boulder
+	x > diamond
+	c > crab
+	b > butterfly
+	A > avatar
+
+    InteractionSet
+        dirt avatar > killSprite 
+        dirt sword > killSprite
+        diamond avatar > scoreChange value=2
+        diamond avatar > collectResource 
+       
+
+        avatar wall > stepBack 
+        avatar boulder > stepBack
+        crab wall > stepBack 
+        crab boulder > stepBack
+        butterfly wall > stepBack 
+        butterfly boulder > stepBack
+
+        avatar boulder > scoreChange value=-1
+        avatar boulder > killIfFromAbove 
+        
+        avatar butterfly > scoreChange value=-1 
+        avatar butterfly > killSprite 
+        
+        avatar crab > scoreChange value=-1 
+        avatar crab > killSprite 
+        
+        crab boulder > scoreChange value=5 
+        crab boulder > killIfFromAbove 
+        butterfly boulder > scoreChange value=5 
+        butterfly boulder > killIfFromAbove
+        
+	boulder dirt > stepBack 
+	boulder wall > stepBack
+	boulder diamond > stepBack
+	boulder boulder > stepBack
+
+	dirt butterfly > killSprite
+	dirt crab > transformTo stype=diamond
+	crab butterfly > killSprite
+
+        #butterfly crab > scoreChange value=1
+	butterfly crab > scoreChange value=1
+	butterfly crab > transformTo stype=diamond
+        
+	exitdoor avatar > killIfOtherHasMore resource=diamond limit=9
+
+    TerminationSet
+	Timeout limit=2000 win=False
+	SpriteCounter stype=avatar limit=0 win=False
+	SpriteCounter stype=exitdoor limit=0 win=True bonus=10`};
+
+
+        var exp_id = '0';
+        var data = {};
+        data.real = 'gvgai_variant_boulderdash_2'
+        data.name = 'Boulderdash 2'
+        data.desc = 0
+        data.level = 3
+        data.pair = 3
+        data.next = true
+        
+        var show_score = true
+
+        require.setModuleRoot('/');
+        require.run('play_game');
+    </script>
+</head>
+<style>
+#score{
+    font-size:20px;
+}
+</style>
+<body>
+    <div class="Flex-Container">
+        <div id='header' class="Flex-Container">
+          <h1 id="title">Boulderdash 2</h1>
+        </div> 
+        <div id='message'>
+        </div>
+        <div id='game-body' class='Flex-Container'>
+            <div id="gjs-loader">
+             <progress max=1 min=0 steps=0.1></progress>
+             <br/>Loading...
+            </div>
+            <canvas id="gjs-canvas"></canvas>
+
+        </div>
+        <div class="flex-buttons">
+            <div class="flex-button" id='start-div'>
+                <button id="start">Start</button>
+            </div>
+        </div>
+        <div class="flex-buttons">
+            <div class="flex-button" id='retry-div'>
+                <button id="retry">Retry</button>
+            </div>
+            
+            <div class="flex-button" id='prev-div'>
+                <button id='prev'>Previous Level</button>
+            </div>
+            
+
+            
+            <div class="flex-button" id='next-div'>  
+                <button id='next'>Next Instance</button>
+            </div>
+            
+        </div>
+        <div class="flex-buttons">
+            <div class="flex-button" id="return-div">
+                <button id="return">Return to Games List</button>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="loading-modal">
+    <div class='modal-content Flex-Container'>
+        <p>Processing data.</p> 
+        <p>This could take a couple of seconds.</p>
+    </div>
+  </div>
+</body>
+</html>
