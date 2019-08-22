@@ -23,7 +23,22 @@ def rename_to_html(game_dirs):
         os.rename(fpath, newfpath)
         print(fname, '->', newfpath)
 
+def backfill_htmls(game_dirs):
+    latests = []
+    for g in game_dirs:
+        gdfs = os.listdir(g)
+        latest = max(int(f.strip('.html')) for f in gdfs)
+        latests.append((g, latest))
+
+    nexts = []
+    for g, latest in latests:
+        fname = os.path.join(g, str(latest) + '.html')
+        with open(fname, 'r') as f:
+            if 'data.next = true' in f.read():
+                nexts.append((g, latest + 1))
+    print(len(nexts), 'games require additional downloads')
+
 rename_to_html(gds)
 
-# fix paths
 # download additional games
+backfill_htmls(gds)
