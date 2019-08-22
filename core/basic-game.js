@@ -11,7 +11,7 @@ var BasicGame = function (gamejs, args) {
 	var block_size = 10;
 	var load_save_enabled = true;
 	var disableContinuousKeyPress = true;
-	var image_dir = 'images/';
+	var image_dir = '../../images/';
 	//var real_start_time = 0;
 	//var real_time = 0;
 
